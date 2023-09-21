@@ -1,7 +1,9 @@
 package eval1;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -26,7 +28,7 @@ public class Ex12T2 {
 				String console = br.readLine();	
 				switch (console) {
 				case "Add":
-					addentry(br, c);
+					addentry(br, c, f);
 					break;
 				case "Show":
 					c.forEach(e -> System.out.println(e));
@@ -36,7 +38,7 @@ public class Ex12T2 {
 		}
 	}
 	
-	static void addentry(BufferedReader br, ArrayList<String> c) throws IOException {
+	static void addentry(BufferedReader br, ArrayList<String> c, File f) throws IOException {
 		if (c.size() < 50) {
 			System.out.println("Provide Name:");
 			String s = br.readLine();
@@ -59,6 +61,10 @@ public class Ex12T2 {
 				return;
 			}
 			reg += s;
+			BufferedWriter bw = new BufferedWriter(new FileWriter(f, true));
+			bw.write(reg);
+			bw.close();
+			
 		}else System.err.println("Too many entries (max. 30)");
 	}
 	
