@@ -18,12 +18,11 @@ public class Ex19T2 {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		File f = new File("rndData\\contacts.txt");
-		int MS= 30;
 		if (f.exists() || f.createNewFile()) {
 			ArrayList<String> c = new ArrayList<>();
 			Scanner s = new Scanner(f);
-			while(s.hasNext()) {
-				c.add(s.next());
+			while(s.hasNextLine()) {
+				c.add(s.nextLine());
 			}
 			System.out.println("Type Add for Creating a new entry. Type Show for printing all your entries.");
 			boolean ok = false;
@@ -46,7 +45,8 @@ public class Ex19T2 {
 	}
 	
 	static void addentry(BufferedReader br, ArrayList<String> c, File f) throws IOException {
-		if (c.size() < 50) {
+		if (c.size() < 30) {
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f, true));
 			System.out.println("Provide Name:");
 			String s = br.readLine();
 			if (checkreg(s,c)) {
@@ -70,18 +70,17 @@ public class Ex19T2 {
 			reg += s;
 			byte[] b = reg.getBytes();
 			try {
-				ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f, true));
 				oos.write(b);
-				oos.close();
 			}catch (Exception e) {
 				System.err.println("Couldnt write file.");
 			}
+			oos.close();
 		}else System.err.println("Too many entries (max. 30)");
 	}
 	
-	static boolean checkreg (String s, ArrayList<String> c) {
+	static boolean checkreg (String s, ArrayList<String> c) throws FileNotFoundException, IOException {
 		for(String x : c) {
-			if (x.contains(s)) {
+			if (byteToStr(x).contains(s)) {
 				return true;
 			}
 		}
@@ -89,6 +88,18 @@ public class Ex19T2 {
 	}
 	
 	static String byteToStr(File f) throws FileNotFoundException, IOException {
+		ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
+		StringBuilder sb = new StringBuilder();
+		int c = ois.read();
+		while(c != -1) {
+			sb.append((char)c);
+			c = ois.read();
+		}
+		ois.close();
+		return sb.toString();
+	}
+
+	static String byteToStr(String f) throws FileNotFoundException, IOException {
 		ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
 		StringBuilder sb = new StringBuilder();
 		int c = ois.read();
