@@ -31,7 +31,7 @@ public class Ex19T2 {
 				String console = br.readLine();	
 				switch (console) {
 				case "Add":
-					addentry(br, c);
+					addentry(br, c, f);
 					break;
 				case "Show":
 					c.forEach(e -> {
@@ -45,7 +45,7 @@ public class Ex19T2 {
 		}
 	}
 	
-	static void addentry(BufferedReader br, ArrayList<String> c) throws IOException {
+	static void addentry(BufferedReader br, ArrayList<String> c, File f) throws IOException {
 		if (c.size() < 50) {
 			System.out.println("Provide Name:");
 			String s = br.readLine();
