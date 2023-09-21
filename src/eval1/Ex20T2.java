@@ -16,9 +16,12 @@ public class Ex20T2 {
 		String str = s.nextLine();
 		try {
 			RandomAccessFile raf = new RandomAccessFile(f, "rw");
+			int idx = 0;
 			while(!str.equals("")) {
-					raf.seek(100);
-					raf.writeChars(str);
+				raf.seek(idx);
+				raf.writeChars(str);
+				raf.writeChars("\n");
+				idx += 100;
 				str = s.nextLine();
 			}
 			raf.close();
@@ -28,16 +31,16 @@ public class Ex20T2 {
 		try {
 			RandomAccessFile raf = new RandomAccessFile(f, "r");
 			raf.seek(0);
+			StringBuilder sb = new StringBuilder();
 			try {
-				StringBuilder sb = new StringBuilder();
-				String temp = raf.readLine();
-				while(temp!=null) {
+				char temp = raf.readChar();
+				while(true) {
 					sb.append(temp);
-					temp = raf.readLine();
+					temp = raf.readChar();
 				}
-				System.out.println(sb);
 			}catch(Exception e){
 				raf.close();
+				System.out.println(sb.toString().trim().replaceAll(" +", ""));
 			}
 		}catch (Exception e) {}
 		
