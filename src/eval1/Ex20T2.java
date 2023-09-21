@@ -40,7 +40,7 @@ public class Ex20T2 {
 				}
 			}catch(Exception e){
 				raf.close();
-				System.out.println(sb.toString().trim().replaceAll(" +", ""));
+				System.out.println(sb.toString().trim().replaceAll("\\W+", "\n"));
 			}
 		}catch (Exception e) {}
 		
