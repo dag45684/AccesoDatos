@@ -1,4 +1,4 @@
-package AccesoDatos.eval1;
+package eval1;
 
 public class Person {
     int age;

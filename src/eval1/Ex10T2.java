@@ -1,4 +1,4 @@
-package AccesoDatos.eval1;
+package eval1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
