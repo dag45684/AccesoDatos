@@ -2,9 +2,7 @@ package AccesoDatos.eval1;
 
 import java.io.File;
 
-import javax.sound.midi.SysexMessage;
-
-public class DirectoryParse {
+public class DirectoryParser {
 
 	public static void main(String[] args) {
 		String path = ".";

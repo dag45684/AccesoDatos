@@ -17,7 +17,5 @@ public class DirectoryMaker {
 				System.err.println("No se ha podido ejecutar el comando.");
 			}
 		}
-
 	}
-
 }

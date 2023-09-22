@@ -2,7 +2,7 @@ package AccesoDatos.eval1;
 
 import java.io.File;
 
-public class FilDeleter {
+public class FileDeleter {
 
 	public static void main(String[] args) {
 		
