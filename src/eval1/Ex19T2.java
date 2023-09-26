@@ -39,11 +39,27 @@ public class Ex19T2 {
 						} catch (Exception err) {}
 					});
 					break;
+				case "Search":
+					searchentry(br, c, f);
+				default:
+					System.out.println(console.toLowerCase().equals("quit") ? "Program has stopped." : "Wrong command. Program has stopped.");
+					ok=true;
 				}
 			}
 		}
 	}
 	
+	static void searchentry(BufferedReader br, ArrayList<String> c, File f) throws IOException {
+		System.out.println("Provide Name, DNI or Phone number:");
+		String s = br.readLine();
+		for(String p : c) {
+			if (byteToStr(p).contains(s)) {
+				System.out.println(byteToStr(p));
+				return;
+			}
+		}
+		System.out.println("No such entry");
+	}
 	static void addentry(BufferedReader br, ArrayList<String> c, File f) throws IOException {
 		if (c.size() < 30) {
 			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f, true));
