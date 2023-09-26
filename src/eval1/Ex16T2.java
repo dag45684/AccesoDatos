@@ -8,7 +8,7 @@ import java.io.ObjectInputStream;
 public class Ex16T2 {
 	public static void main(String[] args) {
 		
-		File f = new File("C:\\Users\\Tarde\\IdeaProjects\\AccesoDatos\\rndData\\binaryDouble.txt");
+		File f = new File("rndData\\binaryDouble.txt");
 		if(f.exists()) {
 			try {
 				ObjectInputStream ois = new ObjectInputStream(new FileInputStream("rndData\\binaryDouble.txt"));

@@ -20,10 +20,10 @@ public class Ex10T2 {
 			System.out.println(a);
 			if(lines == 20) {
 				System.out.println("-------------------------");
-				System.out.println(lines+" lines | "+words+" words | "+chars+" characters.");
-				System.out.println("Type Q to quit, or any other key to continue");
+				System.out.println(lines+" lines | "+words+" words | "+chars+" characters.\n");
+				System.out.println("Press enter to continue or or any other key to quit");
 				Scanner sc = new Scanner(System.in);
-				if (sc.nextLine().toLowerCase() == "q") break;
+				if (!sc.nextLine().equals("")) break;
 			}
 		}
 	}
