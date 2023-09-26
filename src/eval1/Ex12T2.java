@@ -56,7 +56,7 @@ public class Ex12T2 {
 	}
 	
 	static void addentry(BufferedReader br, ArrayList<String> c, File f) throws IOException {
-		if (c.size() < 50) {
+		if (c.size() < 30) {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(f, true));
 			System.out.println("Provide Name:");
 			String s = br.readLine();
