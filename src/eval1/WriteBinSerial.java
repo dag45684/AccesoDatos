@@ -29,7 +29,7 @@ public class WriteBinSerial {
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
 			while(true) {
-				System.out.println((SerPerson)ois.readObject());
+				System.out.println(ois.readObject());
 			}
 		}catch (Exception e) {}
 	}
