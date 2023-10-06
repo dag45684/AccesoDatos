@@ -9,6 +9,7 @@ public class Ex10T2 {
 	public static void main(String[] args) throws FileNotFoundException {
 		File f = new File("rndData\\classlist.txt");
 		Scanner s = new Scanner(f);
+		Scanner sc = new Scanner(System.in);
 		int lines = 0;
 		int words = 0;
 		int chars = 0;
@@ -21,11 +22,10 @@ public class Ex10T2 {
 			if(lines == 20) {
 				System.out.println("-------------------------");
 				System.out.println(lines+" lines | "+words+" words | "+chars+" characters.");
-				System.out.println("Type Q to quit, or any other key to continue");
-				Scanner sc = new Scanner(System.in);
-				if (sc.nextLine().toLowerCase() == "q") break;
+				System.out.println("Press enter to continue, type anything to quit.");
+				lines = 0;
+				if (sc.nextLine().equals("")) break;
 			}
 		}
 	}
-
 }
