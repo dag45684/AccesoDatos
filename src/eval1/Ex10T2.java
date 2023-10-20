@@ -21,10 +21,17 @@ public class Ex10T2 {
 			System.out.println(a);
 			if(lines == 20) {
 				System.out.println("-------------------------");
+<<<<<<< HEAD
 				System.out.println(lines+" lines | "+words+" words | "+chars+" characters.");
 				System.out.println("Press enter to continue, type anything to quit.");
 				lines = 0;
 				if (sc.nextLine().equals("")) break;
+=======
+				System.out.println(lines+" lines | "+words+" words | "+chars+" characters.\n");
+				System.out.println("Press enter to continue or or any other key to quit");
+				Scanner sc = new Scanner(System.in);
+				if (!sc.nextLine().equals("")) break;
+>>>>>>> 2007e4d6873289334f028ae111a67e445d6f6d42
 			}
 		}
 	}
