@@ -25,7 +25,7 @@ public class LeerEmpleado2XML {
 				System.out.println("Id: " + e.getAttribute("id"));
 				System.out.println("Surname: " + e.getElementsByTagName("apellido").item(0).getTextContent());
 				System.out.println("dept: " + e.getElementsByTagName("dept").item(0).getTextContent());
-				System.out.println("salary: " + e.getElementsByTagName("salario").item(0).getTextContent());
+				System.out.println("salary: " + e.getElementsByTagName("salario").item(0).getTextContent() + '\n');
 			}
 		} catch (Exception e) { System.err.println("Something went wrong: " + e);}
 	
